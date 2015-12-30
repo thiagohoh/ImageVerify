@@ -5,12 +5,13 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
-
+//all String must contain " ";
 public class Filerino {
 	
-	public void Creatfile(){
+	public void Creatfile(String cs){
+		String c = cs;
 		try{
-			File file = new File("C:\\Users\\Thiago\\Desktop\\Java test\\aipixels.txt");
+			File file = new File(c);
 			boolean fvar = file.createNewFile();
 		if(fvar){
 			System.out.println("Created successfully");
@@ -27,10 +28,11 @@ public class Filerino {
 	}
 	
 	
-	public void Reador(){
+	public void Reador(String re){
 		BufferedReader br = null;
+		String r = re;
 		try{
-			br = new BufferedReader(new FileReader("C:\\Users\\Thiago\\Desktop\\Java test\\opa.txt"));
+			br = new BufferedReader(new FileReader(r));
 			String contentLine = br.readLine();
 			while ( contentLine != null){
 				System.out.println(contentLine);
@@ -50,8 +52,9 @@ public class Filerino {
 		}
 	}
 	
-	public void ReadorSimple(){
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Thiago\\Desktop\\Java test\\opa.txt"))) {
+	public void ReadorSimple(String r){
+		String rr = r;
+        try (BufferedReader br = new BufferedReader(new FileReader(rr))) {
             String contentLine = br.readLine();
             while ( contentLine != null){
                 System.out.println(contentLine);
@@ -62,16 +65,17 @@ public class Filerino {
         }
 }
 	
-	public void Writerino(){
+	public void Writerino(String w){
+		String ww = w;
 		BufferedWriter bw = null;
 		Getrino geter = new Getrino();
 		
 		try{
 			String content = geter.GetString();
-			File faile = new File ("C:\\Users\\Thiago\\Desktop\\Java test\\aipixels.txt");
+			File faile = new File (ww);
 			
 			if(!faile.exists()){
-				Creatfile();
+				Creatfile(ww);
 			}
 			
 			FileWriter fw = new FileWriter(faile);
@@ -93,15 +97,16 @@ public class Filerino {
 			}
 		}
 		
-	 public void WriterinoSimple(){
+	 public void WriterinoSimple(String w){
+		 String ww = w;
 		    Getrino geter = new Getrino();
 		   
 		    try{
 		      String content = geter.GetString();
-		      File faile = new File ("C:\\Users\\Thiago\\Desktop\\Java test\\opa.txt");
+		      File faile = new File (ww);
 		     
 		      if(!faile.exists()){
-		        Creatfile();
+		        Creatfile(ww);
 		      }
 		     
 		      try (FileWriter fw = new FileWriter(faile); BufferedWriter bw = new BufferedWriter(fw)) {
@@ -113,15 +118,16 @@ public class Filerino {
 		    }
 		  }
 	 
-	 public void WriterinoSimpleAppend(){
+	 public void WriterinoSimpleAppend(String w){
+		 String ww = w;
 		    Getrino geter = new Getrino();
 		   
 		    try{
 		      String content = geter.GetString();
-		      File faile = new File ("C:\\Users\\Thiago\\Desktop\\Java test\\opa.txt");
+		      File faile = new File (ww);
 		     
 		      if(!faile.exists()){
-		        Creatfile();
+		        Creatfile(ww);
 		      }
 		     
 		      try (FileWriter fw = new FileWriter(faile,true); BufferedWriter bw = new BufferedWriter(fw)) {
@@ -135,9 +141,10 @@ public class Filerino {
 	 
 	 
 	 
-	  public void FileDeleter(){
+	  public void FileDeleter(String d){
+		  String dd= d;
 		  try{
-			  File faile = new File("C:\\Users\\Thiago\\Desktop\\Java test\\opa.txt");
+			  File faile = new File(dd);
 			  if(faile.delete()){
 				  System.out.println(faile.getName() + "\tDOOOM!!!!!!!!!!!!!!!!!");
 			  }
@@ -149,9 +156,11 @@ public class Filerino {
 		  }
 	  }
 	 
-	  public void Renamerino(){
-		  File faile = new File("C:\\Users\\Thiago\\Desktop\\Java test\\opa.txt");
-		  File neofaile = new File("C:\\Users\\Thiago\\Desktop\\Java test\\opa22.txt");
+	  public void Renamerino(String old,String neo){
+		  String oldi= old;
+		  String ne = neo;
+		  File faile = new File(oldi);
+		  File neofaile = new File(ne);
 		  boolean flag = faile.renameTo(neofaile);
 		  if(flag){
 			  System.out.println("It was a susccess");
@@ -164,8 +173,10 @@ public class Filerino {
 	  
 	  
 	  
-	  public void DirectoryCreat(){
-		  File dik = new File("C:\\Users\\Thiago\\Desktop\\Java test\\opa");
+	  public void DirectoryCreat(String d,String name){
+		  String dd=d;
+		  String n = name;
+		  File dik = new File(d + n);
 		  if(!dik.exists()){
 			  if(dik.mkdir()){
 				  System.out.println("Directory is born");
@@ -176,15 +187,16 @@ public class Filerino {
 		  }
 	  }
 	  
-	  public void WriterinoSimple2(int a,int r,int b,int g){
+	  public void WriterinoSimple2(int a,int r,int b,int g,String d){
+		  
 		    
 		   
 		    try{
 		      
-		      File faile = new File ("C:\\Users\\Thiago\\Desktop\\Java test\\aipixels.txt");
+		      File faile = new File (d);
 		     
 		      if(!faile.exists()){
-		        Creatfile();
+		        Creatfile(d);
 		      }
 		     
 		      try (FileWriter fw = new FileWriter(faile); BufferedWriter bw = new BufferedWriter(fw)) {
@@ -205,15 +217,15 @@ public class Filerino {
 		  }
 	  
 	  
-	  public void WriterinoSimpleAppend2(int a,int r,int b,int g){
+	  public void WriterinoSimpleAppend2(int a,int r,int b,int g,String c){
 		    
 		   
 		    try{
 		    
-		      File faile = new File ("C:\\Users\\Thiago\\Desktop\\Java test\\aipixels.txt");
+		      File faile = new File (c);
 		     
 		      if(!faile.exists()){
-		        Creatfile();
+		        Creatfile(c);
 		      }
 		     
 		      try (FileWriter fw = new FileWriter(faile,true); BufferedWriter bw = new BufferedWriter(fw)) {
@@ -237,15 +249,15 @@ public class Filerino {
 		    }
 		  }
 	  
-	  public void WriterinoSimpleAppend3(int x,int y){
+	  public void WriterinoSimpleAppend3(int x,int y,String a){
 		    
 		   
 		    try{
 		    
-		      File faile = new File ("C:\\Users\\Thiago\\Desktop\\Java test\\aipixels.txt");
+		      File faile = new File (a);
 		     
 		      if(!faile.exists()){
-		        Creatfile();
+		        Creatfile(a);
 		      }
 		     
 		      try (FileWriter fw = new FileWriter(faile,true); BufferedWriter bw = new BufferedWriter(fw)) {
@@ -265,4 +277,6 @@ public class Filerino {
 		  }
 	 }
 		
+	
+	
 	
