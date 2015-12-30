@@ -7,15 +7,41 @@ import java.io.File;
 
 
 public class Imagerino {
-	public void Ibage  (){
-		
+	public void Ibage(String c){
+		String constant = c;
 		try{
-		BufferedImage	img =  ImageIO.read(new File("C:\\Users\\Thiago\\Desktop\\Java test\\Menina Ai Uehara.jpg"));
+		BufferedImage	img =  ImageIO.read(new File(constant));
 		
-			
+		
 		}catch (IOException e){
 			e.printStackTrace();
 		}
 	}
-	
+	public int GetH(String c){
+		int jota;
+		try{
+			BufferedImage	img =  ImageIO.read(new File(c));
+			
+			jota =  img.getHeight();
+			return jota;
+		}catch (IOException e){
+			e.printStackTrace();
+			return -1;
+		}
 	}
+		
+	
+		
+	public int GetW(String x){
+		int jota;
+		try{
+			BufferedImage	img =  ImageIO.read(new File(x));
+			
+			jota =  img.getWidth();
+			return jota;
+		}catch (IOException e){
+			e.printStackTrace();
+			return -1;
+		}
+	}
+}
