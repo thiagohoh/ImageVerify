@@ -8,19 +8,19 @@ import javax.imageio.ImageIO;
 
 public class GetRGB extends Component {
 	
-	public void PrintPixel(int pixel,int j,int i){
+	public void PrintPixel(int pixel,int j,int i,String a){
 		int alpha = (pixel >> 24) & 0xff;
 	    int red = (pixel >> 16) & 0xff;
 	    int green = (pixel >> 8) & 0xff;
 	    int blue = (pixel) & 0xff;
 	    System.out.println("argb: " + alpha + ", " + red + ", " + green + ", " + blue);
 	    Filerino ww = new Filerino();
-	    ww.WriterinoSimpleAppend3(j, i);
-	    ww.WriterinoSimpleAppend2(alpha, red, blue, green);
+	    ww.WriterinoSimpleAppend3(j, i,a);
+	    ww.WriterinoSimpleAppend2(alpha, red, blue, green,a);
 	}
 
 	
-	public void MarchImage(BufferedImage image){
+	public void MarchImage(BufferedImage image,String a){
 		int w = image.getWidth();
 		int h = image.getHeight();
 		System.out.println("W e H"+ w +", " + h);
@@ -30,22 +30,22 @@ public class GetRGB extends Component {
 				int pixel = image.getRGB(j, i);
 				
 				
-				PrintPixel(pixel,j,i);
+				PrintPixel(pixel,j,i,a);
 				System.out.println("");
 			}
 		}
 		
 	}
 	
-	public void GetImage(){
+	public void GetImage(String ff,String a){
+		String f = ff;
 		try {
 		     
-		      BufferedImage image = ImageIO.read(new File("C:\\Users\\Thiago\\Desktop\\Java test\\Menina Ai Uehara.jpg"));
-		      MarchImage(image);
+		      BufferedImage image = ImageIO.read(new File(f));
+		      MarchImage(image,a);
 		    } catch (IOException e) {
 		      e.printStackTrace();
 		    }
 		  }
 	}
-	
 	
